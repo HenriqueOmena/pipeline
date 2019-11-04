@@ -1,8 +1,22 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
 ul {
     list-style: none;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    border:solid 1px red;
+}
+
+body {
+    font: 14px 'Roboto', sans-serif;
+    background: #ecf1f8;
+    color: #333;
+    -webkit-font-smoothing: antialiased !important;
 }

@@ -1,19 +1,16 @@
 import React from 'react';
-import './styles/main.styles.scss'; //amarelo
-import Header from './components/header/header.component' //azul
-import Button from './components/button/button.component' //verde
+import './styles/main.styles.scss';
+import Header from './components/header/header.component'
+import Board from './components/board/board.component';
 
 function App() {
 
 
   return (
-    <div className="App">
-        <Header>
-            asd <br />
-            {/* <Button>botao</Button> */}
-        </Header>
-
-    </div>
+    <>
+        <Header/>
+        <Board/>
+    </>
   );
 }
 

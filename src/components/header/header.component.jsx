@@ -1,12 +1,10 @@
 import React from 'react'
 import './header.style.scss'
-import Button from '../button/button.component'
 
-const Header = props =>  {
+const Header = () =>  {
     return (
         <header>
-            <Button> dentro do header </Button>
-            { props.children }
+            <h1>Iniciando</h1>
         </header>
     )
 }

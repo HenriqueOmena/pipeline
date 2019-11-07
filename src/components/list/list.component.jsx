@@ -3,7 +3,7 @@ import './list.style.scss';
 import { MdAdd } from "react-icons/md";
 import Card from '../card/card.component';
 
-const List = ({data}) => {
+const List = ({data, index: listIndex}) => {
 
     let opacityDone = data.done && {opacity: 0.6}
 
@@ -20,7 +20,14 @@ const List = ({data}) => {
 
             </div>
             <ul>
-                { data.cards.map( (card, index) => <Card key={card.id} index={index} data={card} />)}
+                { data.cards.map( (card, index) => (
+                    <Card
+                        key={card.id}
+                        listIndex={listIndex}
+                        index={index}
+                        data={card}
+                    />
+                )) }
             </ul>
         </div>
     )

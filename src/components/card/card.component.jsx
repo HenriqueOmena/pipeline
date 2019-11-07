@@ -1,14 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import './card.style.scss';
 import { useDrop, useDrag } from 'react-dnd';
+import BoardContext from '../board/context';
 
-const Card = ({data, index}) => {
+import {  } from "module";
+
+const Card = ({data, index, listIndex}) => {
     const ref = useRef()
-
+    const { move } = useContext(BoardContext)
     const [{ isDragging }, dragRef] = useDrag({
         item: {
             type: 'CARD',
             index,
+            listIndex,
             content: data.content,
             id: data.id
         },
@@ -20,6 +24,9 @@ const Card = ({data, index}) => {
     const [, dropRef] = useDrop({
         accept: 'CARD',
         hover(item, monitor) {
+            const draggedListIndex = item.listIndex;
+            // const targetListIndex = listIndex;
+
             const draggedIndex = item.index;
             const targetIndex = index;
 
@@ -41,7 +48,7 @@ const Card = ({data, index}) => {
                 return
             }
 
-
+            move(draggedListIndex, draggedIndex, targetIndex);
             console.log('object')
         }
     })

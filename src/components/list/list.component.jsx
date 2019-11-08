@@ -12,7 +12,7 @@ const List = ({data, index: listIndex}) => {
             <div className="header">
                 <h2>{data.title}</h2>
 
-                {data.creatable && ( //REVIEW: como ta sendo realizado este if aqui  que eh igual o ternario ?
+                {data.creatable && (
                     <button type="button">
                         <MdAdd size={24} color="#fff"/>
                     </button>
@@ -20,7 +20,9 @@ const List = ({data, index: listIndex}) => {
 
             </div>
             <ul>
+                {console.log(data.cards)}
                 { data.cards.map( (card, index) => (
+
                     <Card
                         key={card.id}
                         listIndex={listIndex}

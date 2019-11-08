@@ -13,8 +13,6 @@ const Card = ({data, index, listIndex}) => {
             type: 'CARD',
             index,
             listIndex,
-            content: data.content,
-            id: data.id
         },
         collect: monitor => ({
             isDragging: monitor.isDragging(),
@@ -25,12 +23,12 @@ const Card = ({data, index, listIndex}) => {
         accept: 'CARD',
         hover(item, monitor) {
             const draggedListIndex = item.listIndex;
-            // const targetListIndex = listIndex;
+            const targetListIndex = listIndex;
 
             const draggedIndex = item.index;
             const targetIndex = index;
 
-            if (draggedIndex === targetIndex) {
+            if (draggedIndex === targetIndex && draggedListIndex === targetListIndex) {
                 return
             }
 
@@ -48,8 +46,12 @@ const Card = ({data, index, listIndex}) => {
                 return
             }
 
-            move(draggedListIndex, draggedIndex, targetIndex);
-            console.log('object')
+            move(draggedListIndex, draggedIndex, targetIndex, targetListIndex);
+
+            item.index = targetIndex;
+            item.index = targetListIndex;
+
+            console.log(targetIndex, targetListIndex)
         }
     })
 

@@ -4,7 +4,8 @@ import './header.style.scss'
 const Header = () =>  {
     return (
         <header>
-            <h1>List itens</h1>
+            <h1>Todo List</h1>
+            <strong>Henrique Omena</strong>
         </header>
     )
 }
